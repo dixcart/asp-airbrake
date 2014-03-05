@@ -135,13 +135,13 @@ Class AirBrakeClass
 
 		Set objNode = xml.createElement("var")
 		objNode.setAttribute "key", strName
-		Set objText = xml.createTextNode(strValue)
-		objNode.appendChild(objText)
-
+		If (strValue <> "") Then
+			Set objText = xml.createTextNode(strValue)
+			objNode.appendChild(objText)
+			Set objText = Nothing
+		End If
 		Set VarNode = objNode
-
-		Set objText = Nothing
-		Set objNode = Nothing		
+		Set objNode = Nothing
 
 	End Function
 
